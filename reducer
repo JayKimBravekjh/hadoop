@@ -1,0 +1,22 @@
+
+from operator import itemgetter
+import sys
+
+for line in sys.stdin:
+    line = line.strip()
+    print line
+    
+
+# again we make it executable: 
+## chmod u+x reducer.py
+
+# Your reducer doesn't actually do anything noticeable to the output, but in general if you want to test your Python mapper and reducer on the command line you can do something like this 
+# (here I am just using generic names instead of the specific names we used above, this same technique can be applied with any MapReduce code written in Python):
+
+# cat inputs | ./mapper.py | sort | ./reducer.py
+
+# Note that sort is a UNIX command line tool which sorts its input. This is necessary to simulate Hadoop behaiver since the Hadoop reduce phase is preceded by the sort phase. 
+# Running on the command line is not a substitute for testing with Hadoop, but it can be helpful as you are writing your code and will give you a good sense of what your code is doing without waiting on the overhead of starting a Hadoop task. 
+
+
+
