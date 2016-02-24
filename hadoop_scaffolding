@@ -1,0 +1,21 @@
+import sys, urllib, re
+
+title_re = re.compile("<title>(.*?)</title>", 
+                      re.MULTILINE | re.DOTALL | re.IGNORECASE)
+                      
+# Read pairs as lines of input from STDIN
+for line in sys.stdin:
+    # We assume that we are fed a series of URLs, one per line
+    url = line.strip()
+    
+    # Fetch the content and output the title (pairs are tab-delimited)
+    match = title_re.search(urllib.urlopen(url).read())
+    if match: 
+        print url, "\t", match.group(1).strip()
+        
+
+## You can test the new multifetch.py by feeding it urls separated by newlines, something like this: 
+# echo "http://www.cs.brandeis.edu" > urls
+# echo "http://www.nytimes.com" >> urls
+# cat urls | ./multifetch.py 
+
