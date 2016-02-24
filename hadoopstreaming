@@ -49,3 +49,7 @@
 # 08/01/11 10:35:03 INFO streaming.StreamJob: Output: titles
 
 
+# can see the result as below. 
+# bin/hadoop dfs -cat titles/part-00000
+# http://www.cs.brandeis.edu  Michtom School of Computer Science
+# http://www.nytimes.com      The New York Times - Blah blah ...
